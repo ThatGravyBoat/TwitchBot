@@ -338,21 +338,27 @@
             if( command === "playsound" && user.toLowerCase() == "thatgravyboat") {
                 switch (message) {
                     case "bhagt":
+                        bhagt.volume = soundVolume;
                         bhagt.play()
                         break;
                     case "jeopardy":
+                        jeopardy.volume = soundVolume;
                         jeopardy.play()
                         break;
                     case "wood":
+                        wood.volume = soundVolume;
                         wood.play()
                         break;
                     case "0":
+                        bhagt.volume = soundVolume;
                         bhagt.play()
                         break;
                     case "1":
+                        jeopardy.volume = soundVolume;
                         jeopardy.play()
                         break;
                     case "2":
+                        wood.volume = soundVolume;
                         wood.play()
                         break;
                 }
@@ -384,6 +390,12 @@
                         wood.currentTime = 0;
                         break;
                 }
+            }
+            if( command === "soundvolume" && user.toLowerCase() == "thatgravyboat") {
+                var soundVolume = message;
+            }
+            if( command === "soundvolume" && user.toLowerCase() == "jaxdagger") {
+                var soundVolume = message;
             }
             //Rewards
             if (command.length > -1 && extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500)}
