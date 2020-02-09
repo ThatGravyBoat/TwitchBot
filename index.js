@@ -73,6 +73,7 @@
         var bhagt = new Audio('sound_files/bye-have-a-great-time.mp3');
         var jeopardy = new Audio('sound_files/Jeopardy_Theme.mp3');
         var wood = new Audio('sound_files/like_some_wood.mp3');
+        var soundVolume = 100;
 
         function addpoints(name, points) {
             var xhttp = new XMLHttpRequest();
@@ -106,9 +107,9 @@
         }
 
 
-        ComfyJS.onConnected = () => {
-            ComfyJS.Say( "!setpoints jaxdagger 50000");
-        }
+        // ComfyJS.onConnected = () => {
+        //     ComfyJS.Say( "!setpoints jaxdagger 50000");
+        // }
         //  ______                           _     
         //  | ___ \                         | |    
         //  | |_/ /_____      ____ _ _ __ __| |___ 
@@ -392,10 +393,22 @@
                 }
             }
             if( command === "soundvolume" && user.toLowerCase() == "thatgravyboat") {
-                var soundVolume = message;
+                if (message >= 1) {
+                    var soundVolume = message;
+                    ComfyJS.Say( "/me Volume set to " + soundVolume);
+                }
+                else {
+                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
+                }
             }
             if( command === "soundvolume" && user.toLowerCase() == "jaxdagger") {
-                var soundVolume = message;
+                if (message >= 1) {
+                    var soundVolume = message;
+                    ComfyJS.Say( "/me Volume set to " + soundVolume);
+                }
+                else {
+                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
+                }
             }
             //Rewards
             if (command.length > -1 && extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500)}
