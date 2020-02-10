@@ -77,6 +77,7 @@
         var userSoundVolume = 0.75;
 
         function addpoints(name, points) {
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -85,9 +86,9 @@
                     console.log("ok"+response);
                 }
             };
-            xhttp.open("PUT", "https://api.streamelements.com/kappa/v2/points/"+params.get( "streamid" )+"/" + name + "/" + points, true);
+            xhttp.open("PUT", "https://api.streamelements.com/kappa/v2/points/"+params.get( "streamid" )+ "/" + name + "/" + points, true);
             xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.setRequestHeader("Authorization", "Bearer " + params.get( "streamjwt" ));
+            xhttp.setRequestHeader("Authorization", "Bearer " + params.get( "streamejwt" ));
             
             xhttp.send();
         }
@@ -120,9 +121,9 @@
         //                                         
         //                                         
         ComfyJS.onChat = ( user, command, message, flags, extra) => {
-                 if (extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500)}
+                 if (extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500);}
                  if (extra.customRewardId == "c2f5aa38-ddd3-42c6-9b6a-5edd93a2317b") {redeem('5cd16535d6b486305283ce5e')}    
-                 if (extra.customRewardId == "d39efd20-8dad-4578-9ee8-c854809ade1b") {addpoints(user, 2000)}
+                 if (extra.customRewardId == "d39efd20-8dad-4578-9ee8-c854809ade1b") {addpoints(user, 2000);}
         }
         //     ___       _         _                 
         //    |_  |     (_)       | |                
