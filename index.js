@@ -70,9 +70,11 @@
         var waddell = new Audio('sound_files/waddell.wav');
         var yosh = new Audio('sound_files/yosh.wav');
         var karma = new Audio('sound_files/karma.wav');
+        var kylie = new Audio('sound_files/kylie.wav');
         var bhagt = new Audio('sound_files/bye-have-a-great-time.mp3');
         var jeopardy = new Audio('sound_files/Jeopardy_Theme.mp3');
         var wood = new Audio('sound_files/like_some_wood.mp3');
+
         var soundVolume = 0.75;
         var userSoundVolume = 0.75;
 
@@ -263,6 +265,7 @@
             if( command === "waddell" && user.toLowerCase() == "cwaddell98") {waddel.volume = window.userSoundVolume;waddell.play()}
             if( command === "yosh" && user.toLowerCase() == "yosh_bts") {yosh.volume = window.userSoundVolume;yosh.play()}
             if( command === "karma" && user.toLowerCase() == "karmaizabeach") {karma.volume = window.userSoundVolume;karma.play()}
+            if( command === "kylie" && user.toLowerCase() == "ザベスト") {kylie.volume = window.userSoundVolume;kylie.play()}
 
             if( command === "gravy" && user.toLowerCase() == "jaxdagger") {gravy.play()}
             if( command === "auri" && user.toLowerCase() == "jaxdagger") {auri.play()}
@@ -338,6 +341,7 @@
             if( command === "waddell" && user.toLowerCase() == "jaxdagger") {waddell.play()}
             if( command === "yosh" && user.toLowerCase() == "jaxdagger") {yosh.play()}
             if( command === "karma" && user.toLowerCase() == "jaxdagger") {karma.play()}
+            if( command === "kylie" && user.toLowerCase() == "jaxdagger") {kylie.play()}
             if( command === "playsound" && user.toLowerCase() == "thatgravyboat") {
                 switch (message) {
                     case "bhagt":
