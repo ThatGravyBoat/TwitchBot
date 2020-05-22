@@ -76,9 +76,11 @@
         var bhagt = new Audio('sound_files/bye-have-a-great-time.mp3');
         var jeopardy = new Audio('sound_files/Jeopardy_Theme.mp3');
         var wood = new Audio('sound_files/like_some_wood.mp3');
-
         var soundVolume = 0.75;
         var userSoundVolume = 0.75;
+
+
+        var approvedUser = ["jaxdagger", "thatgravyboat", "densebunny"];
 
         function addpoints(name, points) {
 
@@ -129,61 +131,6 @@
                  if (extra.customRewardId == "c2f5aa38-ddd3-42c6-9b6a-5edd93a2317b") {redeem('5cd16535d6b486305283ce5e')}    
                  if (extra.customRewardId == "d39efd20-8dad-4578-9ee8-c854809ade1b") {addpoints(user, 2000);}
         }
-        //     ___       _         _                 
-        //    |_  |     (_)       | |                
-        //      | | ___  _ _ __   | |     ___   __ _ 
-        //      | |/ _ \| | '_ \  | |    / _ \ / _` |
-        //  /\__/ / (_) | | | | | | |___| (_) | (_| |
-        //  \____/ \___/|_|_| |_| \_____/\___/ \__, |
-        //                                      __/ |
-        //                                     |___/ 
-        let list = document.getElementById('userNames');
-        function scrollToBottom(id){
-            var div = document.getElementById(id);
-            div.scrollTop = div.scrollHeight - div.clientHeight;
-        }
-        ComfyJS.onJoin = ( user, self ) => {
-            var month = new Date().getDate();
-            var hour = new Date().getHours();
-            var min = new Date().getMinutes();
-            if(min < 10) {
-            let userItem = document.createElement("li");
-            let userName = document.createTextNode("[" + hour + ":0" + min  + "]User Joined Chat : " + user);
-            userItem.style = "color: yellow;"
-            userItem.appendChild(userName);
-            list.appendChild(userItem);
-            scrollToBottom('ul-div');
-            }
-            else {
-                let userItem = document.createElement("li");
-                let userName = document.createTextNode("[" + hour + ":" + min  + "]User Joined Chat : " + user);
-                userItem.style = "color: yellow;"
-                userItem.appendChild(userName);
-                list.appendChild(userItem);
-                scrollToBottom('ul-div');
-            }
-        }
-        ComfyJS.onPart = ( user, self ) => {
-            var month = new Date().getDate();
-            var hour = new Date().getHours();
-            var min = new Date().getMinutes();
-            if(min < 10) {
-                let userItem = document.createElement("li");
-                let userName = document.createTextNode("[" + hour + ":0" + min  + "]User Left Chat : " + user);
-                userItem.style = "color: red;"
-                userItem.appendChild(userName);
-                list.appendChild(userItem);
-                scrollToBottom('ul-div');
-            }
-            else {
-                let userItem = document.createElement("li");
-                let userName = document.createTextNode("[" + hour + ":" + min  + "]User Left Chat : " + user);
-                userItem.style = "color: red;"
-                userItem.appendChild(userName);
-                list.appendChild(userItem);
-                scrollToBottom('ul-div');
-            }
-        }
         //   _____                                           _           __ ______                           _     
         //  /  __ \                                         | |         / / | ___ \                         | |    
         //  | /  \/ ___  _ __ ___  _ __ ___   __ _ _ __   __| |___     / /  | |_/ /_____      ____ _ _ __ __| |___ 
@@ -193,162 +140,82 @@
         //                                                                                                         
         //                                                                                                         
         ComfyJS.onCommand = ( user, command, message, flags, extra) => {
-            if( command === "gravy" && user.toLowerCase() == "thatgravyboat") {gravy.volume = window.userSoundVolume;gravy.play()}
-            if( command === "auri" && user.toLowerCase() == "theauri") {auri.volume  = window.userSoundVolume;auri.play()}
-            if( command === "slof" && user.toLowerCase() == "thelazyslof") {slof.volume = window.userSoundVolume;slof.play()}
-            if( command === "frozen" && user.toLowerCase() == "frozennq") {frozen.volume = window.userSoundVolume;frozen.play()}
-            if( command === "snow" && user.toLowerCase() == "snowbunting") {snow.volume = window.userSoundVolume;snow.play()}
-            if( command === "bella" && user.toLowerCase() == "missizabella") {bella.volume = window.userSoundVolume;bella.play()}
-            if( command === "armybeast" && user.toLowerCase() == "armybeast09") {armybeast.volume = window.userSoundVolume;armybeast.play()}
-            if( command === "amazzaru" && user.toLowerCase() == "amazzaru") {amazzaru.volume = window.userSoundVolume;amazzaru.play()}
-            if( command === "anno" && user.toLowerCase() == "anno_critical") {anno.volume = window.userSoundVolume;anno.play()}
-            if( command === "(:" && user.toLowerCase() == "aryujaded") {aryu.volume = window.userSoundVolume;aryu.play()}
-            if( command === ">:)" && user.toLowerCase() == "ascndr_") {ascndr.volume = window.userSoundVolume;ascndr.play()}
-            if( command === "banzanna" && user.toLowerCase() == "banzanna") {banzanna.volume = window.userSoundVolume;banzanna.play()}
-            if( command === "ben" && user.toLowerCase() == "benhope") {ben.volume = window.userSoundVolume;ben.play()}
-            if( command === "beniswell" && user.toLowerCase() == "beniswell") {beniswell.volume = window.userSoundVolume;beniswell.play()}
-            if( command === "bianca" && user.toLowerCase() == "biancazaayman") {bianca.volume = window.userSoundVolume;bianca.play()}
-            if( command === "bigrye" && user.toLowerCase() == "bigryety") {bigrye.volume = window.userSoundVolume;bigrye.play()}
-            if( command === "brutish" && user.toLowerCase() == "brutishlamb") {brutish.volume = window.userSoundVolume;brutish.play()}
-            if( command === "casper" && user.toLowerCase() == "c7sper") {casper.volume = window.userSoundVolume;casper.play()}
-            if( command === "cat" && user.toLowerCase() == "cat8898") {cat.volume = window.userSoundVolume;cat.play()}
-            if( command === "catman" && user.toLowerCase() == "catman0501") {catman.volume = window.userSoundVolume;catman.play()}
-            if( command === "cheesecakem" && user.toLowerCase() == "cheesecakem") {cheesecakem.volume = window.userSoundVolume;cheesecakem.play()}
-            if( command === "chris" && user.toLowerCase() == "chri5rugby") {chris.volume = window.userSoundVolume;chris.play()}
-            if( command === "crumpett" && user.toLowerCase() == "crumpett_") {crumpett.volume = window.userSoundVolume;crumpett.play()}
-            if( command === "delight" && user.toLowerCase() == "delightfuii") {delight.volume = window.userSoundVolume;delight.play()}
-            if( command === "dense" && user.toLowerCase() == "densebunny") {dense.volume = window.userSoundVolume;dense.play()}
-            if( command === "dikke" && user.toLowerCase() == "dikkekater") {dikke.volume = window.userSoundVolume;dikke.play()}
-            if( command === "double" && user.toLowerCase() == "double0kills") {double.volume = window.userSoundVolume;double.play()}
-            if( command === "equinox" && user.toLowerCase() == "equanoxqq") {equinox.volume = window.userSoundVolume;equinox.play()}
-            if( command === "erik" && user.toLowerCase() == "eriktenacity") {erik.volume = window.userSoundVolume;erik.play()}
-            if( command === "erzaskill" && user.toLowerCase() == "erzaskill") {erzaskill.volume = window.userSoundVolume;erzaskill.play()}
-            if( command === "fristy" && user.toLowerCase() == "fristyy") {fristy.volume = window.userSoundVolume;fristy.play()}
-            if( command === "ghost" && user.toLowerCase() == "ighostyi_") {ghost.volume = window.userSoundVolume;ghost.play()}
-            if( command === "gome" && user.toLowerCase() == "notgomenasai") {gome.volume = window.userSoundVolume;gome.play()}
-            if( command === "gome" && user.toLowerCase() == "gomenasai_") {gome.volume = window.userSoundVolume;gome.play()}
-            if( command === "jet" && user.toLowerCase() == "jetrvoox") {jet.volume = window.userSoundVolume;jet.play()}
-            if( command === "joel" && user.toLowerCase() == "joelkjn") {joel.volume = window.userSoundVolume;joel.play()}
-            if( command === "jonny" && user.toLowerCase() == "jonny_rottin") {jonny.volume = window.userSoundVolume;jonny.play()}
-            if( command === "josue" && user.toLowerCase() == "vjosuee") {josue.volume = window.userSoundVolume;josue.play()}
-            if( command === "justice" && user.toLowerCase() == "justicegg") {justice.volume = window.userSoundVolume;justice.play()}
-            if( command === "koko" && user.toLowerCase() == "kokomonkey78") {koko.volume = window.userSoundVolume;koko.play()}
-            if( command === "looney" && user.toLowerCase() == "looneychoonzz") {looney.volume = window.userSoundVolume;looney.play()}
-            if( command === "matoa" && user.toLowerCase() == "matoakit") {matoa.volume = window.userSoundVolume;matoa.play()}
-            if( command === "megaty" && user.toLowerCase() == "megaty97") {megaty.volume = window.userSoundVolume;megaty.play()}
-            if( command === "mel" && user.toLowerCase() == "melynara") {mel.volume = window.userSoundVolume;mel.play()}
-            if( command === "moonshine" && user.toLowerCase() == "m0onshlne") {moonshine.volume = window.userSoundVolume;moonshine.play()}
-            if( command === "napo" && user.toLowerCase() == "el_napo") {napo.volume = window.userSoundVolume;napo.play()}
-            if( command === "nutes" && user.toLowerCase() == "nogoodnutes") {nutes.volume = window.userSoundVolume;nutes.play()}
-            if( command === "panda" && user.toLowerCase() == "pandaasura") {panda.volume = window.userSoundVolume;panda.play()}
-            //if( command === "papa" && user.toLowerCase() == "pandaasura") {papa.volume = window.userSoundVolume;papa.play()}
-            if( command === "perpurple" && user.toLowerCase() == "perpurpler") {perpurple.volume = window.userSoundVolume;perpurple.play()}
-            if( command === "philipeace" && user.toLowerCase() == "philipeace") {philipeace.volume = window.userSoundVolume;philipeace.play()}
-            if( command === "potter" && user.toLowerCase() == "pottersauce") {potter.volume = window.userSoundVolume;potter.play()}
-            if( command === "primal" && user.toLowerCase() == "primalcinder") {primal.volume = window.userSoundVolume;primal.play()}
-            //if( command === "revolter" && user.toLowerCase() == "thatgravyboat") {revolter.volume = window.userSoundVolume;revolter.play()}
-            if( command === "ross" && user.toLowerCase() == "rxsstv") {ross.volume = window.userSoundVolume;ross.play()}
-            if( command === "shadisy" && user.toLowerCase() == "shadisy") {shadisy.volume = window.userSoundVolume;shadisy.play()}
-            if( command === "shaunzom" && user.toLowerCase() == "shaunzomgaming") {shaunzom.volume = window.userSoundVolume;shaunzom.play()}
-            if( command === "shundrie" && user.toLowerCase() == "shundrie") {shundrie.volume = window.userSoundVolume;shundrie.play()}
-            //if( command === "simon" && user.toLowerCase() == "pandaasura") {simon.volume = window.userSoundVolume;simon.play()}
-            if( command === "sockie" && user.toLowerCase() == "sockiex") {sockie.volume = window.userSoundVolume;sockie.play()}
-            if( command === "sonny" && user.toLowerCase() == "sonnyinchaines") {sonny.volume = window.userSoundVolume;sonny.play()}
-            if( command === "spacko" && user.toLowerCase() == "mr_spacko") {spacko.volume = window.userSoundVolume;spacko.play()}
-            if( command === "steffknight" && user.toLowerCase() == "steffknight") {steffknight.volume = window.userSoundVolume;steffknight.play()}
-            if( command === "swoopy" && user.toLowerCase() == "swoopyyyyy") {swoopy.volume = window.userSoundVolume;swoopy.play()}
-            if( command === "taco" && user.toLowerCase() == "tacostandqueen") {taco.volume = window.userSoundVolume;taco.play()}
-            if( command === "tickle" && user.toLowerCase() == "ticklemedildoe") {tickle.volume = window.userSoundVolume;tickle.play()}
-            if( command === "toby" && user.toLowerCase() == "tobyeee") {toby.volume = window.userSoundVolume;toby.play()}
-            if( command === "torstie" && user.toLowerCase() == "torstie") {torstie.volume = window.userSoundVolume;torstie.play()}
-            if( command === "total" && user.toLowerCase() == "totalverzockthd") {total.volume = window.userSoundVolume;total.play()}
-            if( command === "treatfly" && user.toLowerCase() == "treatfly") {treatfly.volume = window.userSoundVolume;treatfly.play()}
-            if( command === "turtle" && user.toLowerCase() == "theturtlechrist") {turtle.volume = window.userSoundVolume;turtle.play()}
-            if( command === "twists" && user.toLowerCase() == "twists20g") {twists.volume = window.userSoundVolume;twists.play()}
-            if( command === "vulpix" && user.toLowerCase() == "vulpixow") {vulpix.volume = window.userSoundVolume;vulpix.play()}
-            if( command === "waddell" && user.toLowerCase() == "cwaddell98") {waddel.volume = window.userSoundVolume;waddell.play()}
-            if( command === "yosh" && user.toLowerCase() == "yosh_bts") {yosh.volume = window.userSoundVolume;yosh.play()}
-            if( command === "karma" && user.toLowerCase() == "karmaizabeach") {karma.volume = window.userSoundVolume;karma.play()}
-            if( command === "kylie" && user.toLowerCase() == "ザベスト") {kylie.volume = window.userSoundVolume;kylie.play()}
+            if( command === "gravy" && (user.toLowerCase() == "thatgravyboat" || user.toLowerCase() == "jaxdagger")) {gravy.volume = window.userSoundVolume;gravy.play()}
+            if( command === "auri" && (user.toLowerCase() == "theauri" || user.toLowerCase() == "jaxdagger")) {auri.volume  = window.userSoundVolume;auri.play()}
+            if( command === "slof" && (user.toLowerCase() == "thelazyslof" || user.toLowerCase() == "jaxdagger")) {slof.volume = window.userSoundVolume;slof.play()}
+            if( command === "frozen" && (user.toLowerCase() == "frozennq" || user.toLowerCase() == "jaxdagger")) {frozen.volume = window.userSoundVolume;frozen.play()}
+            if( command === "snow" && (user.toLowerCase() == "snowbunting" || user.toLowerCase() == "jaxdagger")) {snow.volume = window.userSoundVolume;snow.play()}
+            if( command === "bella" && (user.toLowerCase() == "missizabella" || user.toLowerCase() == "jaxdagger")) {bella.volume = window.userSoundVolume;bella.play()}
+            if( command === "armybeast" && (user.toLowerCase() == "armybeast09" || user.toLowerCase() == "jaxdagger")) {armybeast.volume = window.userSoundVolume;armybeast.play()}
+            if( command === "amazzaru" && (user.toLowerCase() == "amazzaru" || user.toLowerCase() == "jaxdagger")) {amazzaru.volume = window.userSoundVolume;amazzaru.play()}
+            if( command === "anno" && (user.toLowerCase() == "anno_critical" || user.toLowerCase() == "jaxdagger")) {anno.volume = window.userSoundVolume;anno.play()}
+            if( command === "(:" && (user.toLowerCase() == "aryujaded" || user.toLowerCase() == "jaxdagger")) {aryu.volume = window.userSoundVolume;aryu.play()}
+            if( command === ">:)" && (user.toLowerCase() == "ascndr_" || user.toLowerCase() == "jaxdagger")) {ascndr.volume = window.userSoundVolume;ascndr.play()}
+            if( command === "banzanna" && (user.toLowerCase() == "banzanna" || user.toLowerCase() == "jaxdagger")) {banzanna.volume = window.userSoundVolume;banzanna.play()}
+            if( command === "ben" && (user.toLowerCase() == "benhope" || user.toLowerCase() == "jaxdagger")) {ben.volume = window.userSoundVolume;ben.play()}
+            if( command === "beniswell" && (user.toLowerCase() == "beniswell" || user.toLowerCase() == "jaxdagger")) {beniswell.volume = window.userSoundVolume;beniswell.play()}
+            if( command === "bianca" && (user.toLowerCase() == "biancazaayman" || user.toLowerCase() == "jaxdagger")) {bianca.volume = window.userSoundVolume;bianca.play()}
+            if( command === "bigrye" && (user.toLowerCase() == "bigryety" || user.toLowerCase() == "jaxdagger")) {bigrye.volume = window.userSoundVolume;bigrye.play()}
+            if( command === "brutish" && (user.toLowerCase() == "brutishlamb" || user.toLowerCase() == "jaxdagger")) {brutish.volume = window.userSoundVolume;brutish.play()}
+            if( command === "casper" && (user.toLowerCase() == "c7sper" || user.toLowerCase() == "jaxdagger")) {casper.volume = window.userSoundVolume;casper.play()}
+            if( command === "cat" && (user.toLowerCase() == "cat8898" || user.toLowerCase() == "jaxdagger")) {cat.volume = window.userSoundVolume;cat.play()}
+            if( command === "catman" && (user.toLowerCase() == "catman0501" || user.toLowerCase() == "jaxdagger")) {catman.volume = window.userSoundVolume;catman.play()}
+            if( command === "cheesecakem" && (user.toLowerCase() == "cheesecakem" || user.toLowerCase() == "jaxdagger")) {cheesecakem.volume = window.userSoundVolume;cheesecakem.play()}
+            if( command === "chris" && (user.toLowerCase() == "chri5rugby" || user.toLowerCase() == "jaxdagger")) {chris.volume = window.userSoundVolume;chris.play()}
+            if( command === "crumpett" && (user.toLowerCase() == "crumpett_" || user.toLowerCase() == "jaxdagger")) {crumpett.volume = window.userSoundVolume;crumpett.play()}
+            if( command === "delight" && (user.toLowerCase() == "delightfuii" || user.toLowerCase() == "jaxdagger")) {delight.volume = window.userSoundVolume;delight.play()}
+            if( command === "dense" && (user.toLowerCase() == "densebunny" || user.toLowerCase() == "jaxdagger")) {dense.volume = window.userSoundVolume;dense.play()}
+            if( command === "dikke" && (user.toLowerCase() == "dikkekater" || user.toLowerCase() == "jaxdagger")) {dikke.volume = window.userSoundVolume;dikke.play()}
+            if( command === "double" && (user.toLowerCase() == "double0kills" || user.toLowerCase() == "jaxdagger")) {double.volume = window.userSoundVolume;double.play()}
+            if( command === "equinox" && (user.toLowerCase() == "equanoxqq" || user.toLowerCase() == "jaxdagger")) {equinox.volume = window.userSoundVolume;equinox.play()}
+            if( command === "erik" && (user.toLowerCase() == "eriktenacity" || user.toLowerCase() == "jaxdagger")) {erik.volume = window.userSoundVolume;erik.play()}
+            if( command === "erzaskill" && (user.toLowerCase() == "erzaskill" || user.toLowerCase() == "jaxdagger")) {erzaskill.volume = window.userSoundVolume;erzaskill.play()}
+            if( command === "fristy" && (user.toLowerCase() == "fristyy" || user.toLowerCase() == "jaxdagger")) {fristy.volume = window.userSoundVolume;fristy.play()}
+            if( command === "ghost" && (user.toLowerCase() == "ighostyi_" || user.toLowerCase() == "jaxdagger")) {ghost.volume = window.userSoundVolume;ghost.play()}
+            if( command === "gome" && (user.toLowerCase() == "notgomenasai" || user.toLowerCase() == "jaxdagger")) {gome.volume = window.userSoundVolume;gome.play()}
+            if( command === "gome" && (user.toLowerCase() == "gomenasai_" || user.toLowerCase() == "jaxdagger")) {gome.volume = window.userSoundVolume;gome.play()}
+            if( command === "jet" && (user.toLowerCase() == "jetrvoox" || user.toLowerCase() == "jaxdagger")) {jet.volume = window.userSoundVolume;jet.play()}
+            if( command === "joel" && (user.toLowerCase() == "joelkjn" || user.toLowerCase() == "jaxdagger")) {joel.volume = window.userSoundVolume;joel.play()}
+            if( command === "jonny" && (user.toLowerCase() == "jonny_rottin" || user.toLowerCase() == "jaxdagger")) {jonny.volume = window.userSoundVolume;jonny.play()}
+            if( command === "josue" && (user.toLowerCase() == "vjosuee" || user.toLowerCase() == "jaxdagger")) {josue.volume = window.userSoundVolume;josue.play()}
+            if( command === "justice" && (user.toLowerCase() == "justicegg" || user.toLowerCase() == "jaxdagger")) {justice.volume = window.userSoundVolume;justice.play()}
+            if( command === "koko" && (user.toLowerCase() == "kokomonkey78" || user.toLowerCase() == "jaxdagger")) {koko.volume = window.userSoundVolume;koko.play()}
+            if( command === "looney" && (user.toLowerCase() == "looneychoonzz" || user.toLowerCase() == "jaxdagger")) {looney.volume = window.userSoundVolume;looney.play()}
+            if( command === "matoa" && (user.toLowerCase() == "matoakit" || user.toLowerCase() == "jaxdagger")) {matoa.volume = window.userSoundVolume;matoa.play()}
+            if( command === "megaty" && (user.toLowerCase() == "megaty97" || user.toLowerCase() == "jaxdagger")) {megaty.volume = window.userSoundVolume;megaty.play()}
+            if( command === "mel" && (user.toLowerCase() == "melynara" || user.toLowerCase() == "jaxdagger")) {mel.volume = window.userSoundVolume;mel.play()}
+            if( command === "moonshine" && (user.toLowerCase() == "m0onshlne" || user.toLowerCase() == "jaxdagger")) {moonshine.volume = window.userSoundVolume;moonshine.play()}
+            if( command === "napo" && (user.toLowerCase() == "el_napo" || user.toLowerCase() == "jaxdagger")) {napo.volume = window.userSoundVolume;napo.play()}
+            if( command === "nutes" && (user.toLowerCase() == "nogoodnutes" || user.toLowerCase() == "jaxdagger")) {nutes.volume = window.userSoundVolume;nutes.play()}
+            if( command === "panda" && (user.toLowerCase() == "pandaasura" || user.toLowerCase() == "jaxdagger")) {panda.volume = window.userSoundVolume;panda.play()}
+            if( command === "perpurple" && (user.toLowerCase() == "perpurpler" || user.toLowerCase() == "jaxdagger")) {perpurple.volume = window.userSoundVolume;perpurple.play()}
+            if( command === "philipeace" && (user.toLowerCase() == "philipeace" || user.toLowerCase() == "jaxdagger")) {philipeace.volume = window.userSoundVolume;philipeace.play()}
+            if( command === "potter" && (user.toLowerCase() == "pottersauce" || user.toLowerCase() == "jaxdagger")) {potter.volume = window.userSoundVolume;potter.play()}
+            if( command === "primal" && (user.toLowerCase() == "primalcinder" || user.toLowerCase() == "jaxdagger")) {primal.volume = window.userSoundVolume;primal.play()}
+            if( command === "ross" && (user.toLowerCase() == "rxsstv" || user.toLowerCase() == "jaxdagger")) {ross.volume = window.userSoundVolume;ross.play()}
+            if( command === "shadisy" && (user.toLowerCase() == "shadisy" || user.toLowerCase() == "jaxdagger")) {shadisy.volume = window.userSoundVolume;shadisy.play()}
+            if( command === "shaunzom" && (user.toLowerCase() == "shaunzomgaming" || user.toLowerCase() == "jaxdagger")) {shaunzom.volume = window.userSoundVolume;shaunzom.play()}
+            if( command === "shundrie" && (user.toLowerCase() == "shundrie" || user.toLowerCase() == "jaxdagger")) {shundrie.volume = window.userSoundVolume;shundrie.play()}
+            if( command === "sockie" && (user.toLowerCase() == "sockiex" || user.toLowerCase() == "jaxdagger")) {sockie.volume = window.userSoundVolume;sockie.play()}
+            if( command === "sonny" && (user.toLowerCase() == "sonnyinchaines" || user.toLowerCase() == "jaxdagger")) {sonny.volume = window.userSoundVolume;sonny.play()}
+            if( command === "spacko" && (user.toLowerCase() == "mr_spacko" || user.toLowerCase() == "jaxdagger")) {spacko.volume = window.userSoundVolume;spacko.play()}
+            if( command === "steffknight" && (user.toLowerCase() == "steffknight" || user.toLowerCase() == "jaxdagger")) {steffknight.volume = window.userSoundVolume;steffknight.play()}
+            if( command === "swoopy" && (user.toLowerCase() == "swoopyyyyy" || user.toLowerCase() == "jaxdagger")) {swoopy.volume = window.userSoundVolume;swoopy.play()}
+            if( command === "taco" && (user.toLowerCase() == "tacostandqueen" || user.toLowerCase() == "jaxdagger")) {taco.volume = window.userSoundVolume;taco.play()}
+            if( command === "tickle" && (user.toLowerCase() == "ticklemedildoe" || user.toLowerCase() == "jaxdagger")) {tickle.volume = window.userSoundVolume;tickle.play()}
+            if( command === "toby" && (user.toLowerCase() == "tobyeee" || user.toLowerCase() == "jaxdagger")) {toby.volume = window.userSoundVolume;toby.play()}
+            if( command === "torstie" && (user.toLowerCase() == "torstie" || user.toLowerCase() == "jaxdagger")) {torstie.volume = window.userSoundVolume;torstie.play()}
+            if( command === "total" && (user.toLowerCase() == "totalverzockthd" || user.toLowerCase() == "jaxdagger")) {total.volume = window.userSoundVolume;total.play()}
+            if( command === "treatfly" && (user.toLowerCase() == "treatfly" || user.toLowerCase() == "jaxdagger")) {treatfly.volume = window.userSoundVolume;treatfly.play()}
+            if( command === "turtle" && (user.toLowerCase() == "theturtlechrist" || user.toLowerCase() == "jaxdagger")) {turtle.volume = window.userSoundVolume;turtle.play()}
+            if( command === "twists" && (user.toLowerCase() == "twists20g" || user.toLowerCase() == "jaxdagger")) {twists.volume = window.userSoundVolume;twists.play()}
+            if( command === "vulpix" && (user.toLowerCase() == "vulpixow" || user.toLowerCase() == "jaxdagger")) {vulpix.volume = window.userSoundVolume;vulpix.play()}
+            if( command === "waddell" && (user.toLowerCase() == "cwaddell98" || user.toLowerCase() == "jaxdagger")) {waddel.volume = window.userSoundVolume;waddell.play()}
+            if( command === "yosh" && (user.toLowerCase() == "yosh_bts" || user.toLowerCase() == "jaxdagger")) {yosh.volume = window.userSoundVolume;yosh.play()}
+            if( command === "karma" && (user.toLowerCase() == "karmaizabeach" || user.toLowerCase() == "jaxdagger")) {karma.volume = window.userSoundVolume;karma.play()}
+            if( command === "kylie" && (user.toLowerCase() == "ザベスト" || user.toLowerCase() == "jaxdagger")) {kylie.volume = window.userSoundVolume;kylie.play()}
 
-            if( command === "gravy" && user.toLowerCase() == "jaxdagger") {gravy.play()}
-            if( command === "auri" && user.toLowerCase() == "jaxdagger") {auri.play()}
-            if( command === "slof" && user.toLowerCase() == "jaxdagger") {slof.play()}
-            if( command === "frozen" && user.toLowerCase() == "jaxdagger") {frozen.play()}
-            if( command === "snow" && user.toLowerCase() == "jaxdagger") {snow.play()}
-            if( command === "bella" && user.toLowerCase() == "jaxdagger") {bella.play()}
-            if( command === "armybeast" && user.toLowerCase() == "jaxdagger") {armybeast.play()}
-            if( command === "amazzaru" && user.toLowerCase() == "jaxdagger") {amazzaru.play()}
-            if( command === "anno" && user.toLowerCase() == "jaxdagger") {anno.play()}
-            if( command === "(:" && user.toLowerCase() == "jaxdagger") {aryu.play()}
-            if( command === ">:)" && user.toLowerCase() == "jaxdagger") {asncdr.play()}
-            if( command === "banzanna" && user.toLowerCase() == "jaxdagger") {banzanna.play()}
-            if( command === "ben" && user.toLowerCase() == "jaxdagger") {ben.play()}
-            if( command === "beniswell" && user.toLowerCase() == "jaxdagger") {beniswell.play()}
-            if( command === "bianca" && user.toLowerCase() == "jaxdagger") {bianca.play()}
-            if( command === "bigrye" && user.toLowerCase() == "jaxdagger") {bigrye.play()}
-            if( command === "brutish" && user.toLowerCase() == "jaxdagger") {brutish.play()}
-            if( command === "casper" && user.toLowerCase() == "jaxdagger") {casper.play()}
-            if( command === "cat" && user.toLowerCase() == "jaxdagger") {cat.play()}
-            if( command === "catman" && user.toLowerCase() == "jaxdagger") {catman.play()}
-            if( command === "cheesecakem" && user.toLowerCase() == "jaxdagger") {cheesecakem.play()}
-            if( command === "chris" && user.toLowerCase() == "jaxdagger") {chris.play()}
-            if( command === "crumpett" && user.toLowerCase() == "jaxdagger") {crumpett.play()}
-            if( command === "delight" && user.toLowerCase() == "jaxdagger") {delight.play()}
-            if( command === "dense" && user.toLowerCase() == "jaxdagger") {dense.play()}
-            if( command === "dikke" && user.toLowerCase() == "jaxdagger") {dikke.play()}
-            if( command === "double" && user.toLowerCase() == "jaxdagger") {double.play()}
-            if( command === "equinox" && user.toLowerCase() == "jaxdagger") {equinox.play()}
-            if( command === "erik" && user.toLowerCase() == "jaxdagger") {erik.play()}
-            if( command === "erzaskill" && user.toLowerCase() == "jaxdagger") {erzaskill.play()}
-            if( command === "fristy" && user.toLowerCase() == "jaxdagger") {fristy.play()}
-            if( command === "ghost" && user.toLowerCase() == "jaxdagger") {ghost.play()}
-            if( command === "gome" && user.toLowerCase() == "jaxdagger") {gome.play()}
-            if( command === "gome" && user.toLowerCase() == "jaxdagger") {gome.play()}
-            if( command === "jet" && user.toLowerCase() == "jaxdagger") {jet.play()}
-            if( command === "joel" && user.toLowerCase() == "jaxdagger") {joel.play()}
-            if( command === "jonny" && user.toLowerCase() == "jaxdagger") {jonny.play()}
-            if( command === "josue" && user.toLowerCase() == "jaxdagger") {josue.play()}
-            if( command === "justice" && user.toLowerCase() == "jaxdagger") {justice.play()}
-            if( command === "koko" && user.toLowerCase() == "jaxdagger") {koko.play()}
-            if( command === "looney" && user.toLowerCase() == "jaxdagger") {looney.play()}
-            if( command === "matoa" && user.toLowerCase() == "jaxdagger") {matoa.play()}
-            if( command === "megaty" && user.toLowerCase() == "jaxdagger") {megaty.play()}
-            if( command === "mel" && user.toLowerCase() == "jaxdagger") {mel.play()}
-            if( command === "moonshine" && user.toLowerCase() == "jaxdagger") {moonshine.play()}
-            if( command === "napo" && user.toLowerCase() == "jaxdagger") {napo.play()}
-            if( command === "nutes" && user.toLowerCase() == "jaxdagger") {nutes.play()}
-            if( command === "panda" && user.toLowerCase() == "jaxdagger") {panda.play()}
-            if( command === "papa" && user.toLowerCase() == "jaxdagger") {papa.play()}
-            if( command === "perpurple" && user.toLowerCase() == "jaxdagger") {perpurple.play()}
-            if( command === "philipeace" && user.toLowerCase() == "jaxdagger") {philipeace.play()}
-            if( command === "potter" && user.toLowerCase() == "jaxdagger") {potter.play()}
-            if( command === "primal" && user.toLowerCase() == "jaxdagger") {primal.play()}
-            if( command === "revolter" && user.toLowerCase() == "jaxdagger") {revolter.play()}
-            if( command === "ross" && user.toLowerCase() == "jaxdagger") {ross.play()}
-            if( command === "shadisy" && user.toLowerCase() == "jaxdagger") {shadisy.play()}
-            if( command === "shaunzom" && user.toLowerCase() == "jaxdagger") {shaunzom.play()}
-            if( command === "shundrie" && user.toLowerCase() == "jaxdagger") {shundrie.play()}
-            if( command === "simon" && user.toLowerCase() == "jaxdagger") {simon.play()}
-            if( command === "sockie" && user.toLowerCase() == "jaxdagger") {sockie.play()}
-            if( command === "sonny" && user.toLowerCase() == "jaxdagger") {sonny.play()}
-            if( command === "spacko" && user.toLowerCase() == "jaxdagger") {spacko.play()}
-            if( command === "steffknight" && user.toLowerCase() == "jaxdagger") {steffknight.play()}
-            if( command === "swoopy" && user.toLowerCase() == "jaxdagger") {swoopy.play()}
-            if( command === "taco" && user.toLowerCase() == "jaxdagger") {taco.play()}
-            if( command === "tickle" && user.toLowerCase() == "jaxdagger") {tickle.play()}
-            if( command === "toby" && user.toLowerCase() == "jaxdagger") {toby.play()}
-            if( command === "torstie" && user.toLowerCase() == "jaxdagger") {torstie.play()}
-            if( command === "total" && user.toLowerCase() == "jaxdagger") {total.play()}
-            if( command === "treatfly" && user.toLowerCase() == "jaxdagger") {treatfly.play()}
-            if( command === "turtle" && user.toLowerCase() == "jaxdagger") {turtle.play()}
-            if( command === "twists" && user.toLowerCase() == "jaxdagger") {twists.play()}
-            if( command === "vulpix" && user.toLowerCase() == "jaxdagger") {vulpix.play()}
-            if( command === "waddell" && user.toLowerCase() == "jaxdagger") {waddell.play()}
-            if( command === "yosh" && user.toLowerCase() == "jaxdagger") {yosh.play()}
-            if( command === "karma" && user.toLowerCase() == "jaxdagger") {karma.play()}
-            if( command === "kylie" && user.toLowerCase() == "jaxdagger") {kylie.play()}
-            if( command === "playsound" && user.toLowerCase() == "thatgravyboat") {
+            if( command === "playsound" && approvedUser.includes(user.toLowerCase())) {
                 switch (message) {
                     case "bhagt":
                         bhagt.volume = window.soundVolume;
@@ -376,7 +243,7 @@
                         break;
                 }
             }
-            if( command === "pausesound" && user.toLowerCase() == "thatgravyboat") {
+            if( command === "pausesound" && approvedUser.includes(user.toLowerCase())) {
                 switch (message) {
                     case "bhagt":
                         bhagt.pause()
@@ -404,41 +271,33 @@
                         break;
                 }
             }
-            if( command === "soundvolume" && user.toLowerCase() == "thatgravyboat") {
+            if( command === "soundvolume" && approvedUser.includes(user.toLowerCase())) {
                 if (message <= 1) {
                     window.soundVolume = message;
-                    ComfyJS.Say( "/me Volume set to " + soundVolume);
+                    ComfyJS.Say( "/me Volume set to " + parseFloat(soundVolume).toFixed(2));
                 }
                 else {
-                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
+                    ComfyJS.Say( "/me Set volume from a number between 0.0 and 1.0");
                 }
             }
-            if( command === "soundvolume" && user.toLowerCase() == "jaxdagger") {
-                if (message <= 1) {
-                    window.soundVolume = message;
-                    ComfyJS.Say( "/me Volume set to " + soundVolume);
-                }
-                else {
-                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
-                }
-            }
-            if( command === "usersoundvolume" && user.toLowerCase() == "thatgravyboat") {
+            if( command === "usersoundvolume" && approvedUser.includes(user.toLowerCase())) {
                 if (message <= 1) {
                     window.userSoundVolume = message;
-                    ComfyJS.Say( "/me User sound volume set to " + userSoundVolume);
+                    ComfyJS.Say( "/me User sound volume set to " + parseFloat(userSoundVolume).toFixed(2));
                 }
                 else {
-                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
+                    ComfyJS.Say( "/me Set volume from a number between 0.0 and 1.0");
                 }
             }
-            if( command === "usersoundvolume" && user.toLowerCase() == "jaxdagger") {
-                if (message <= 1) {
-                    window.userSoundVolume = message;
-                    ComfyJS.Say( "/me User sound volume set to " + userSoundVolume);
-                }
-                else {
-                    ComfyJS.Say( "/me Set volume from a number between 0 and 1");
-                }
+
+            if( command === "gravystestsound" && approvedUser.includes(user.toLowerCase())) {
+                var sound = new Audio(message);
+                sound.volume = window.soundVolume;
+                sound.play()
+            }
+            if( command === "gravystestsoundstop" && approvedUser.includes(user.toLowerCase())) {
+                sound.pause()
+                sound.currentTime = 0;
             }
             //Rewards
             if (command.length > -1 && extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500)}
