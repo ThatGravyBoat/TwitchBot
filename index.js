@@ -114,6 +114,23 @@
             xhttp.send();
         }
 
+        async function speakMessage( message, ttsVoice ) {
+            let speak = await fetch( `https://api.streamelements.com/kappa/v2/speech?voice=${ttsVoice}&text=` + encodeURIComponent( message.trim() ) );
+              if( speak.status != 200 ) {
+                  // await speak.text();
+                  return;
+              }
+    
+            let mp3 = await speak.blob();
+            let blobUrl = URL.createObjectURL( mp3 );
+                document.getElementById( "source" ).setAttribute( "src", blobUrl );
+                let audio = document.getElementById( "audio" );
+                audio.pause();
+                audio.load();
+                audio.volume = 1;
+                audio.play();
+          }
+
 
         ComfyJS.onConnected = () => {
             ComfyJS.Say( "!setpoints jaxdagger 50000");
@@ -243,6 +260,19 @@
                         break;
                 }
             }
+
+            if( command === "tts" && approvedUser.includes(user.toLowerCase())) {
+                switch (user.toLowerCase()) {
+                    case "densebunny":
+                        speakMessage( message, "Amy" )
+                        break;
+                    case "thatgravyboat":
+                        speakMessage( message, "Brian" )
+                        break;
+                }
+            }
+
+
             if( command === "pausesound" && approvedUser.includes(user.toLowerCase())) {
                 switch (message) {
                     case "bhagt":
