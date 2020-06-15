@@ -260,7 +260,7 @@
                         break;
                 }
             }
-            if (command === "moist" && flags.vip){
+            if (command === "moist" && (flags.vip || flags.mod || flags.broadcaster)){
                 moist.volume = window.userSoundVolume;moist.play()
             }
 
