@@ -76,6 +76,7 @@
         var bhagt = new Audio('sound_files/bye-have-a-great-time.mp3');
         var jeopardy = new Audio('sound_files/Jeopardy_Theme.mp3');
         var wood = new Audio('sound_files/like_some_wood.mp3');
+        var moist = new Audio('sound_files/moist.wav');
         var soundVolume = 0.75;
         var userSoundVolume = 0.75;
 
@@ -231,7 +232,6 @@
             if( command === "yosh" && (user.toLowerCase() == "yosh_bts" || user.toLowerCase() == "jaxdagger")) {yosh.volume = window.userSoundVolume;yosh.play()}
             if( command === "karma" && (user.toLowerCase() == "karmaizabeach" || user.toLowerCase() == "jaxdagger")) {karma.volume = window.userSoundVolume;karma.play()}
             if( command === "kylie" && (user.toLowerCase() == "ザベスト" || user.toLowerCase() == "jaxdagger")) {kylie.volume = window.userSoundVolume;kylie.play()}
-
             if( command === "playsound" && approvedUser.includes(user.toLowerCase())) {
                 switch (message) {
                     case "bhagt":
@@ -259,6 +259,9 @@
                         wood.play()
                         break;
                 }
+            }
+            if (command === "moist" && flags.vip){
+                moist.volume = window.userSoundVolume;moist.play()
             }
 
             if( command === "tts" && approvedUser.includes(user.toLowerCase())) {
