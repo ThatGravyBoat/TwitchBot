@@ -148,6 +148,8 @@
                  if (extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500);}
                  if (extra.customRewardId == "c2f5aa38-ddd3-42c6-9b6a-5edd93a2317b") {redeem('5cd16535d6b486305283ce5e')}    
                  if (extra.customRewardId == "d39efd20-8dad-4578-9ee8-c854809ade1b") {addpoints(user, 2000);}
+                 if (extra.customRewardId == "9be6c561-69b5-4f18-891c-c6571f519bc0") {addpoints(user, 10000)}
+                 if (extra.customRewardId == "a9b7c917-166a-4952-9447-72214affdcda") {addpoints(user, 25000)}
         }
         //   _____                                           _           __ ______                           _     
         //  /  __ \                                         | |         / / | ___ \                         | |    
@@ -335,6 +337,9 @@
             //Rewards
             if (command.length > -1 && extra.customRewardId == "5606c07b-ddc3-460a-aeb0-98b1533c9824") {addpoints(user, 500)}
             if (command.length > -1 && extra.customRewardId == "d39efd20-8dad-4578-9ee8-c854809ade1b") {addpoints(user, 2000)}
+            if (command.length > -1 && extra.customRewardId == "9be6c561-69b5-4f18-891c-c6571f519bc0") {addpoints(user, 10000)}
+            if (command.length > -1 && extra.customRewardId == "a9b7c917-166a-4952-9447-72214affdcda") {addpoints(user, 25000)}
             if (command.length > -1 && extra.customRewardId == "c2f5aa38-ddd3-42c6-9b6a-5edd93a2317b") {redeem('5cd16535d6b486305283ce5e')}
+            // if (command === "whatsthisid"){ComfyJS.Say(extra.customRewardId)}
         }
         ComfyJS.Init( "BotDagger", "oauth:" + params.get( "oauth" ), "JaxDagger" );
